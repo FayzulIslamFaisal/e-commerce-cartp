@@ -27,6 +27,8 @@ Route::get('/details/{id}',[ShopController::class,'productDetails'])->name('shop
 // product Cart route
 Route::get('/cart',[CartController::class,'index'])->name('cart.index');
 Route::post('/cart/store',[CartController::class,'addToCart'])->name('cart.store');
+// javascrip dom example
+Route::get('/javascriptexample',[CartController::class,'jsExampleFUnction'])->name('jstesting');
 
 
 

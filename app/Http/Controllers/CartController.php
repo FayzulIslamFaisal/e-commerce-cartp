@@ -15,10 +15,13 @@ class CartController extends Controller
     }
 
     public function addToCart(Request $request){
-        // dd($request);
         $product = Product::find($request->id);
         $price = $product->sale_price ? $product->sale_price : $product->regular_price;
         Cart::instance('cart')->add($product->id, $product->name, $product->quantity,$price )->associate('App\Models\Product');
         return redirect()->route('cart.index')->with('message','Product Item Successfully Add To Cart');
+    }
+
+    public function jsExampleFUnction() {
+        return view('js-example.index');
     }
 }

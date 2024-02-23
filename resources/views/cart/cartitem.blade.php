@@ -52,8 +52,6 @@
                     </thead>
                     <tbody>
                         @foreach ($cartItems as $item)
-
-                        @endforeach
                         <tr>
                             <td>
                                 <a href="{{ route('shop.product.details',$item->id) }}">
@@ -62,7 +60,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('shop.product.details',$item->id) }}"> {{ $item->model->name }}</a>
+                                <a href="{{ route('shop.product.details',$item->id) }}">{!! Str::limit($item->name, 10, ' ...') !!} </a>
                                 <div class="mobile-cart-content row">
                                     <div class="col">
                                         <div class="qty-box">
@@ -90,8 +88,10 @@
                             <td>
                                 <div class="qty-box">
                                     <div class="input-group">
+                                        <input type="hidden" class="hidden_price" value="{{ $item->price }}">
                                         <input type="number" name="quantity"
                                             data-rowid="ba02b0dddb000b25445168300c65386d"
+                                            onchange="manageQuantity(this)"
                                             class="form-control input-number" value="{{ $item->qty }}">
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                             </td>
                         </tr>
 
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -184,3 +184,14 @@
     </div>
 </section>
 @endsection
+
+
+@push('scripts')
+ <script>
+   function manageQuantity() {
+    let qty = $('.hidden_price').val;
+    alert( qty);
+
+   }
+ </script>
+@endpush
