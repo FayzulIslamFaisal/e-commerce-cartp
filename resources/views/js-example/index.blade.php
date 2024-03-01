@@ -122,7 +122,7 @@
                                                 value="1" class="">
                                         </li>
                                         <li>
-                                            <button class="page-link" onclick="decreasNumbe('textbox1','itemval1')">-</button>
+                                            <button class="page-link" onclick="decreasNumber('textbox1','itemval1')">-</button>
                                         </li>
                                     </ul>
                                 </nav>
@@ -214,7 +214,6 @@
         const increasNumber = (qtyId,itemprice) => {
             var itemVal = document.getElementById(qtyId);
             var itemprice = document.getElementById(itemprice);
-            console.log(itemprice);
             if (itemVal.value>=5) {
                 itemVal.value = 5;
                 itemVal.style.background = 'red';
@@ -227,7 +226,6 @@
         const decreasNumber = (qtyId,itemprice) => {
             var itemVal = document.getElementById(qtyId);
             var itemprice = document.getElementById(itemprice);
-            console.log(itemprice);
             if (itemVal.value<=1) {
                 itemVal.value = 1
             }else {
